@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <link href="http:///dev.priceshape.com/custom/market-reports/assets/css/market-report-gemini.css" rel="stylesheet"/>
+    <!-- The external stylesheet link is commented out as the critical styles are defined inline via Tailwind CSS and the local <style> block for portability. -->
+    <!-- <link href="http:///dev.priceshape.com/custom/market-reports/assets/css/market-report-gemini.css" rel="stylesheet"/> -->
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
@@ -25,38 +26,58 @@
         {"@context":"https://schema.org","@type":"WebSite","description":"market report","headline":"market-report","name":"market-report","url":"https://priceshape-jonasjensen-report.github.io/market-report/"}
     </script>
     <style>
+        /* Custom CSS variables for color consistency */
         :root { --dark-blue:#20274d; --light-bg:#f9fbfc; --green:#10b981; --custom-bg:#f2f4f7; --orange-red-btn:#ef5a47; }
         .text-dark-blue{color:var(--dark-blue)} .text-green{color:var(--green)}
         .bg-dark-blue{background-color:var(--dark-blue)} .bg-green{background-color:var(--green)}
         .bg-orange-red-btn{background-color:var(--orange-red-btn)}
+        /* Custom scrollbar and layout */
         ::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:var(--light-bg)}
         ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px} ::-webkit-scrollbar-thumb:hover{background:#94a3b8}
         .px-50{padding-left:50px !important;padding-right:50px !important}
         body{background-color:var(--custom-bg) !important}
+        /* Font application */
+        h1, h2, h3, h4 { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Open Sans', sans-serif; }
+        .reportContentHeader h1 { font-size: 2.25rem; line-height: 2.5rem; font-weight: 700; color: var(--dark-blue); }
+        .reportPSLogo { height: 35px; } /* Ensure logo is visible */
+
+        /* Print styles */
+        @media print {
+            body { background-color: white !important; padding: 0 !important; }
+            .container-lg { margin: 0; padding: 0; }
+            .no-print { display: none !important; }
+            .headerSection { border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-bottom: 30px; }
+        }
     </style>
 </head>
 <body class="text-gray-300 p-8">
     <div class="container-lg px-3 my-5 markdown-body">
         <div class="headerSection">
-            <a href="https://priceshape.com/"><img alt="PriceShape custom report generator" class="reportPSLogo" src="http:///dev.priceshape.com/custom/market-reports/assets/graphics/PriceShape_dark.svg"/></a>
+            <!-- Placeholder for PriceShape logo -->
+            <a href="https://priceshape.com/">
+                <svg viewBox="0 0 24 24" class="reportPSLogo" fill="none" xmlns="http://www.w3.org/2000/svg" style="height: 35px;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM11.293 8.293C11.683 7.902 12.316 7.902 12.707 8.293L15.707 11.293C16.098 11.683 16.098 12.316 15.707 12.707L12.707 15.707C12.316 16.098 11.683 16.098 11.293 15.707C10.902 15.316 10.902 14.683 11.293 14.293L13.586 12L11.293 9.707C10.902 9.316 10.902 8.683 11.293 8.293Z" fill="#20274d"/>
+                </svg>
+            </a>
         </div> 
         
         <div class="mx-auto w-full rounded-2xl shadow-2xl" id="ReportContentBox">
             <div class="bg-white rounded-2xl">
-                <div class="reportContentHeader">
-                    <h1>Pricing Optimization Report — Professional Beauty Portfolio</h1>
+                <div class="reportContentHeader p-10 pb-0">
+                    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Pricing Optimization Report — Professional Beauty Portfolio</h1>
                     <p class="text-sm text-gray-500 font-medium mt-1">21 October 2025</p>
                 </div>
                 
                 <div class="py-8 px-50 text-gray-900 rounded-2xl">
                     
-                    <!-- ===== REPORT CONTENT (generated) ===== -->
+                    <!-- ===== REPORT CONTENT START ===== -->
                     <section class="mb-10">
                         <h2 class="text-2xl font-semibold text-dark-blue">Executive Summary</h2>
                         <p class="mt-3">
                             Your hair and beauty product catalog of <strong>512 products</strong> across <strong>83 premium brands</strong> presents a significant untapped revenue opportunity.
                             Currently, <strong>76%</strong> of your products are priced below competitor levels, creating an immediate opportunity to capture
-                            <strong>£23,638</strong> in additional annual revenue through strategic price optimization.
+                            <strong class="text-green">£23,638</strong> in additional annual revenue through strategic price optimization.
                         </p>
 
                         <!-- KPI grid -->
@@ -94,7 +115,7 @@
                     <section class="mb-10">
                         <h2 class="text-2xl font-semibold text-dark-blue">Current Market Position Analysis</h2>
                         <h3 class="text-lg font-semibold mt-4">Portfolio Overview</h3>
-                        <ul class="list-disc pl-6 mt-2 space-y-1">
+                        <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                             <li>512 active products across 83 professional beauty brands</li>
                             <li>Average product price: £15.91</li>
                             <li>667 competitors actively monitored</li>
@@ -111,12 +132,12 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                             <!-- Short-term -->
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="text-lg font-semibold">Short-Term Impact (0–6 months)</h3>
-                                <p class="mt-2">Immediate Price Optimization: <strong>£9,678</strong> annual revenue.</p>
-                                <p class="mt-2">Top 3 brands with largest opportunity:</p>
+                                <h3 class="text-lg font-semibold text-dark-blue">Short-Term Impact (0–6 months)</h3>
+                                <p class="mt-2 text-gray-700">Immediate Price Optimization: <strong class="text-green">£9,678</strong> annual revenue.</p>
+                                <p class="mt-2 text-gray-700">Top 3 brands with largest opportunity:</p>
                                 <div class="overflow-x-auto mt-3">
                                     <table class="min-w-full text-sm text-gray-700">
-                                        <thead class="text-left text-gray-500">
+                                        <thead class="text-left text-gray-500 border-b border-gray-300">
                                             <tr>
                                                 <th class="py-2 pr-4">Brand</th>
                                                 <th class="py-2 pr-4">Products</th>
@@ -126,44 +147,44 @@
                                         </thead>
                                         <tbody class="divide-y divide-gray-200">
                                             <tr>
-                                                <td class="py-2 pr-4">L'Oréal Professionnel</td>
+                                                <td class="py-2 pr-4 font-medium">L'Oréal Professionnel</td>
                                                 <td class="py-2 pr-4">31</td>
-                                                <td class="py-2 pr-4">£7.26 / product</td>
+                                                <td class="py-2 pr-4">£7.26/product</td>
                                                 <td class="py-2">£2,701</td>
                                             </tr>
                                             <tr>
-                                                <td class="py-2 pr-4">Schwarzkopf</td>
+                                                <td class="py-2 pr-4 font-medium">Schwarzkopf</td>
                                                 <td class="py-2 pr-4">67</td>
-                                                <td class="py-2 pr-4">£5.17 / product</td>
+                                                <td class="py-2 pr-4">£5.17/product</td>
                                                 <td class="py-2">£4,152</td>
                                             </tr>
                                             <tr>
-                                                <td class="py-2 pr-4">OPI</td>
+                                                <td class="py-2 pr-4 font-medium">OPI</td>
                                                 <td class="py-2 pr-4">46</td>
-                                                <td class="py-2 pr-4">£5.11 / product</td>
+                                                <td class="py-2 pr-4">£5.11/product</td>
                                                 <td class="py-2">£2,821</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <div class="mt-4 rounded-lg border border-gray-200 p-4">
-                                    <p class="font-medium">Quick Win Example</p>
-                                    <p class="text-sm mt-1">
+                                <div class="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4">
+                                    <p class="font-medium text-dark-blue">Quick Win Example</p>
+                                    <p class="text-sm mt-1 text-gray-700">
                                         <strong>L'Oréal Professionnel</strong> products: currently averaging <strong>£13.47</strong>, competitors at <strong>£20.73</strong>.<br/>
-                                        <strong>Opportunity:</strong> Increase prices by <strong>35%</strong> while remaining competitive.<br/>
-                                        <strong>Impact:</strong> ~<strong>£225</strong> additional monthly revenue from this brand alone.
+                                        <strong>Opportunity:</strong> Increase prices by <strong class="text-green">35%</strong> while remaining competitive.<br/>
+                                        <strong>Impact:</strong> ~<strong class="text-green">£225</strong> additional monthly revenue from this brand alone.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Long-term -->
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="text-lg font-semibold">Long-Term Impact (6–24 months)</h3>
-                                <p class="mt-2">Total Portfolio Optimization: <strong>£23,638</strong> annual revenue.</p>
-                                <p class="mt-2">Expanding optimization across the 509-product competitive portfolio could generate nearly <strong>£2,000</strong> additional monthly revenue.</p>
-                                <h4 class="font-semibold mt-4">Strategic Benefits</h4>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <h3 class="text-lg font-semibold text-dark-blue">Long-Term Impact (6–24 months)</h3>
+                                <p class="mt-2 text-gray-700">Total Portfolio Optimization: <strong class="text-green">£23,638</strong> annual revenue.</p>
+                                <p class="mt-2 text-gray-700">Expanding optimization across the 509-product competitive portfolio could generate nearly <strong>£2,000</strong> additional monthly revenue.</p>
+                                <h4 class="font-semibold mt-4 text-dark-blue">Strategic Benefits</h4>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                                     <li><strong>Margin Expansion:</strong> Each £1 price increase translates directly to bottom-line profit.</li>
                                     <li><strong>Market Positioning:</strong> Align pricing with market standards without losing competitiveness.</li>
                                     <li><strong>Brand Perception:</strong> Professional beauty products command premium pricing expectations.</li>
@@ -180,36 +201,36 @@
                             <!-- Schwarzkopf -->
                             <div class="rounded-xl border border-gray-200 p-5">
                                 <p class="text-sm text-gray-500">Professional Hair Care Segment</p>
-                                <h3 class="text-lg font-semibold mt-1">Schwarzkopf Professional</h3>
+                                <h3 class="text-lg font-semibold mt-1 text-dark-blue">Schwarzkopf Professional</h3>
                                 <p class="text-sm text-gray-500">(20 products, avg £16.68)</p>
-                                <ul class="list-disc pl-6 mt-3 space-y-1">
-                                    <li>Currently priced £5–10 below Salon Services &amp; Sally Beauty.</li>
-                                    <li>Opportunity: Gradual <strong>15–25%</strong> increases over 3 months.</li>
-                                    <li>Customer impact: Minimal (pro stylists expect premium pricing).</li>
+                                <ul class="list-disc pl-6 mt-3 space-y-1 text-gray-700">
+                                    <li>**Current underpricing:** Professional treatments priced £5–10 below Salon Services &amp; Sally Beauty.</li>
+                                    <li>**Opportunity:** Gradual <strong>15–25%</strong> increases over 3 months.</li>
+                                    <li>**Customer impact:** Minimal (pro stylists expect premium pricing).</li>
                                 </ul>
                             </div>
 
                             <!-- OPI -->
                             <div class="rounded-xl border border-gray-200 p-5">
                                 <p class="text-sm text-gray-500">Color Cosmetics Segment</p>
-                                <h3 class="text-lg font-semibold mt-1">OPI Nail Products</h3>
+                                <h3 class="text-lg font-semibold mt-1 text-dark-blue">OPI Nail Products</h3>
                                 <p class="text-sm text-gray-500">(46 products, avg £12.76)</p>
-                                <ul class="list-disc pl-6 mt-3 space-y-1">
-                                    <li>Currently £3–5 below ASOS, Boots, Superdrug.</li>
-                                    <li>Opportunity: Immediate <strong>20–30%</strong> price alignment.</li>
-                                    <li>Market validation: OPI’s premium positioning supports higher pricing.</li>
+                                <ul class="list-disc pl-6 mt-3 space-y-1 text-gray-700">
+                                    <li>**Current underpricing:** OPI polishes £3–5 below ASOS, Boots, Superdrug.</li>
+                                    <li>**Opportunity:** Immediate <strong>20–30%</strong> price alignment.</li>
+                                    <li>**Market validation:** OPI’s premium positioning supports higher pricing.</li>
                                 </ul>
                             </div>
 
                             <!-- Wella -->
                             <div class="rounded-xl border border-gray-200 p-5">
                                 <p class="text-sm text-gray-500">Mass Premium Segment</p>
-                                <h3 class="text-lg font-semibold mt-1">Wella Professionals</h3>
+                                <h3 class="text-lg font-semibold mt-1 text-dark-blue">Wella Professionals</h3>
                                 <p class="text-sm text-gray-500">(26 products, avg £14.85)</p>
-                                <ul class="list-disc pl-6 mt-3 space-y-1">
-                                    <li>Salon-exclusive products currently priced like consumer lines.</li>
-                                    <li>Opportunity: <strong>£4–8</strong> per-product increases justified by professional distribution.</li>
-                                    <li>Differentiation: Professional-only access supports premium pricing.</li>
+                                <ul class="list-disc pl-6 mt-3 space-y-1 text-gray-700">
+                                    <li>**Current underpricing:** Salon-exclusive products priced like consumer lines.</li>
+                                    <li>**Opportunity:** <strong>£4–8</strong> per-product increases justified by professional distribution.</li>
+                                    <li>**Differentiation:** Professional-only access supports premium pricing.</li>
                                 </ul>
                             </div>
                         </div>
@@ -220,24 +241,24 @@
 
                         <div class="space-y-4 mt-3">
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="font-semibold">Phase 1 (Month 1): Quick Wins – £400/month</h3>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <h3 class="font-semibold text-dark-blue">Phase 1 (Month 1): Quick Wins – <span class="text-green">£400/month</span></h3>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                                     <li>Focus on L'Oréal Professionnel and OPI with largest gaps.</li>
                                     <li>Test 15% increases on top 20 underpriced products.</li>
                                     <li>Monitor conversion rates and competitor responses.</li>
                                 </ul>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="font-semibold">Phase 2 (Months 2–3): Brand Rollout – £800/month</h3>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <h3 class="font-semibold text-dark-blue">Phase 2 (Months 2–3): Brand Rollout – <span class="text-green">£800/month</span></h3>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                                     <li>Extend to Schwarzkopf and Wella professional lines.</li>
                                     <li>Implement dynamic pricing rules based on competitive positioning.</li>
                                     <li>A/B testing on pricing sensitivity.</li>
                                 </ul>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="font-semibold">Phase 3 (Months 4–6): Full Portfolio – £1,970/month</h3>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <h3 class="font-semibold text-dark-blue">Phase 3 (Months 4–6): Full Portfolio – <span class="text-green">£1,970/month</span></h3>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                                     <li>Systematic optimization across all 509 competitive products.</li>
                                     <li>Automated competitive monitoring and price adjustment triggers.</li>
                                     <li>Premium positioning for exclusive/professional-only products.</li>
@@ -250,16 +271,16 @@
                         <h2 class="text-2xl font-semibold text-dark-blue">Risk Mitigation</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="font-semibold">Low Risk Profile</h3>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
-                                    <li>76% below competitor pricing provides substantial safety margin.</li>
+                                <h3 class="font-semibold text-dark-blue">Low Risk Profile</h3>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
+                                    <li>Currently 76% below competitor pricing provides substantial safety margin.</li>
                                     <li>Professional beauty market is less price-sensitive than consumer segments.</li>
                                     <li>Gradual implementation allows for market feedback and adjustment.</li>
                                 </ul>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-5">
-                                <h3 class="font-semibold">Monitoring Strategy</h3>
-                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                <h3 class="font-semibold text-dark-blue">Monitoring Strategy</h3>
+                                <ul class="list-disc pl-6 mt-2 space-y-1 text-gray-700">
                                     <li>Weekly competitive price tracking.</li>
                                     <li>Conversion rate analysis by price band.</li>
                                     <li>Customer feedback integration.</li>
@@ -273,7 +294,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-3">
                             <div class="rounded-xl border border-gray-200 p-5">
                                 <div class="text-xs text-gray-500">Investment</div>
-                                <div class="text-xl font-bold">Minimal</div>
+                                <div class="text-xl font-bold text-gray-900">Minimal</div>
                                 <p class="text-sm text-gray-600 mt-1">Primarily process optimization & monitoring setup.</p>
                             </div>
                             <div class="rounded-xl border border-gray-200 p-5">
@@ -283,7 +304,7 @@
                             </div>
                             <div class="rounded-xl border border-gray-200 p-5">
                                 <div class="text-xs text-gray-500">Payback & Risk-Adjusted ROI</div>
-                                <div class="text-xl font-bold">Immediate; 400%+</div>
+                                <div class="text-xl font-bold text-gray-900">Immediate; 400%+</div>
                                 <p class="text-sm text-gray-600 mt-1">Given low implementation costs.</p>
                             </div>
                         </div>
@@ -291,7 +312,7 @@
                             This pricing optimization represents a low-risk, high-reward opportunity to better align your professional beauty portfolio with market standards while maintaining competitive positioning and improving profitability.
                         </p>
                     </section>
-                    <!-- ===== END REPORT CONTENT ===== -->
+                    <!-- ===== REPORT CONTENT END ===== -->
 
                     <div class="border-t border-gray-300 mt-12 pt-8 mb-8 mx-auto w-11/12"></div> 
                     
@@ -309,19 +330,20 @@
         <div class="section">
             <div class="bottomSectionDownloadPDF">
                 <div class="card no-print">
-                    <button class="btn btn--primary" id="download-pdf-btn" type="button">Download this report as a PDF</button>
+                    <button class="btn btn--primary bg-dark-blue text-white hover:bg-opacity-90 transition-colors duration-150 rounded-lg p-3 mt-4" id="download-pdf-btn" type="button">Download this report as a PDF</button>
                 </div>
             </div>
         </div>
         
+        <!-- Script to trigger Print/Save as PDF dialog -->
         <script>
             (function(){
                 var btn = document.getElementById('download-pdf-btn');
                 if (btn) { btn.addEventListener('click', function(){ window.print(); }); }
             })();
         </script>
+        <script crossorigin="anonymous" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
+        <script>anchors.add();</script>
     </div>
-    <script crossorigin="anonymous" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"></script>
-    <script>anchors.add();</script>
 </body>
 </html>
